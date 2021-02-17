@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS artifacts;
+CREATE DATABASE artifacts;
