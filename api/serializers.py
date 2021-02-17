@@ -3,6 +3,12 @@ from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.user import User
+from .models.artifacts import Artifact
+
+class ArtifactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artifact
+        fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'owner')
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
