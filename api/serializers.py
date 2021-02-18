@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.mango import Mango
 from .models.user import User
 from .models.artifacts import Artifact
 
@@ -10,10 +9,10 @@ class ArtifactSerializer(serializers.ModelSerializer):
         model = Artifact
         fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'owner')
 
-class MangoSerializer(serializers.ModelSerializer):
+class ArtifactReadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Mango
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
+        model = Artifact
+        fields = ('name', 'category', 'rarity', 'attunement', 'description')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
