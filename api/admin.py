@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user import User
-from .models.artifact import Artifact
+from .models.artifacts import Artifact
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
