@@ -25,9 +25,15 @@ class Artifact(models.Model):
     ("7", "Unknown Rarity")
     ]
     name = models.CharField(max_length=100)
-    category = forms.ChoiceField(choices=CATEGORY_CHOICES)
-    rarity = forms.ChoiceField(choices=RARITY_CHOICES)
-    attunement = forms.BooleanField()
+    category = models.CharField(
+        max_length=1,
+        choices=CATEGORY_CHOICES
+    )
+    rarity = models.CharField(
+        max_length=1,
+        choices=RARITY_CHOICES
+    )
+    attunement = models.BooleanField()
     description = models.TextField(max_length=750)
     owner = models.ForeignKey(
         get_user_model(),
