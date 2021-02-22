@@ -55,7 +55,9 @@ I also utilized my cohort by asking them questions when I couldn't solve an issu
 
 - Python
 - Django
-- pipenv
+- Pipenv
+- Postgresql
+- Heroku
 
 ## Unsolved Problems/Planned Updates
 
