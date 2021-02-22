@@ -10,9 +10,12 @@ class ArtifactSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'owner')
 
 class ArtifactReadSerializer(serializers.ModelSerializer):
+    category_display = serializers.CharField(source='get_category_display')
+    rarity_display = serializers.CharField(source='get_rarity_display')
     class Meta:
         model = Artifact
-        fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description')
+        fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'category_display', 'rarity_display')
+
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
