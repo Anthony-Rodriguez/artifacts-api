@@ -10,6 +10,14 @@ from django.middleware.csrf import get_token
 from ..models.artifacts import Artifact
 from ..serializers import ArtifactSerializer, ArtifactReadSerializer, UserSerializer
 
+class AllArtifacts(generics.ListCreateAPIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self, request):
+        """Index request"""
+        artifacts = Artifact.objects
+        data = ArtifactReadSerializer(artifacts, many=True).data
+        return Response({ 'artifacts': data })
+
 class Artifacts(generics.ListCreateAPIView):
     permission_classes=(IsAuthenticated,)
     serializer_class = ArtifactSerializer
