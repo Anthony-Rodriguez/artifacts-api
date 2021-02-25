@@ -14,7 +14,7 @@ class ArtifactReadSerializer(serializers.ModelSerializer):
     rarity_display = serializers.CharField(source='get_rarity_display')
     class Meta:
         model = Artifact
-        fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'category_display', 'rarity_display')
+        fields = ('id', 'name', 'category', 'rarity', 'attunement', 'description', 'category_display', 'rarity_display', 'owner')
 
 
 class UserSerializer(serializers.ModelSerializer):

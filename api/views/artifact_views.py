@@ -41,8 +41,6 @@ class ArtifactDetail(generics.RetrieveUpdateDestroyAPIView):
     def get(self, request, pk):
         """Show request"""
         artifact = get_object_or_404(Artifact, pk=pk)
-        if not request.user.id == artifact.owner.id:
-            raise PermissionDenied('Unauthorized, you do not own this artifact')
         data = ArtifactReadSerializer(artifact).data
         return Response({ 'artifact': data })
 
